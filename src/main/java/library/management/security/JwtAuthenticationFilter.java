@@ -18,7 +18,6 @@ import java.util.Optional;
 
 import static org.springframework.util.Assert.state;
 
-@Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

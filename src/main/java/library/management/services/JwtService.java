@@ -1,4 +1,4 @@
-package library.management.security;
+package library.management.services;
 
 import io.jsonwebtoken.*;
 import lombok.extern.log4j.Log4j2;
@@ -20,7 +20,7 @@ import static io.vavr.control.Try.ofCallable;
 public class JwtService {
 
 	private static final String SECRET_KEY = "VGhlIEphdmEgRGV2IEhlcmU=";
-	private static final int EXPIRATION_TIME_MILLIS = 1000 * 20;
+	private static final int EXPIRATION_TIME_MILLIS = 1000 * 60 * 15;
 
 	private final SecretKey secretKey;
 	private final JwtParser jwtParser;

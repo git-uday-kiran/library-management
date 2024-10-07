@@ -2,7 +2,7 @@ package library.management.controllers;
 
 import library.management.dtos.SignInRequest;
 import library.management.dtos.SignInResponse;
-import library.management.security.JwtService;
+import library.management.services.JwtService;
 import library.management.services.SignInService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

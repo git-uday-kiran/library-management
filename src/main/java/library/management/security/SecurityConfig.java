@@ -15,8 +15,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationManager manager, JwtAuthenticationFilter jwtAuthFilter) throws Exception {
+	SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationProvider provider) throws Exception {
+		ProviderManager manager = new ProviderManager(provider);
+		JwtAuthenticationFilter jwtAuthFilter = new JwtAuthenticationFilter(manager);
+
 		return http
+				.securityMatcher("/users/**", "/members/**", "/books/**")
 				.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(config -> {
 					config.requestMatchers("/singup", "/signin").permitAll();
@@ -25,12 +29,6 @@ public class SecurityConfig {
 				.authenticationManager(manager)
 				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
 				.build();
-	}
-
-
-	@Bean
-	ProviderManager providerManager(JwtAuthenticationProvider jwtAuthenticationProvider) {
-		return new ProviderManager(jwtAuthenticationProvider);
 	}
 
 }

@@ -2,6 +2,7 @@ package library.management.security;
 
 import io.jsonwebtoken.Claims;
 import library.management.models.Role;
+import library.management.services.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;

@@ -4,7 +4,6 @@ import library.management.dtos.SignInRequest;
 import library.management.dtos.SignInResponse;
 import library.management.models.User;
 import library.management.repositories.UserRepo;
-import library.management.security.JwtService;
 import library.management.utils.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
